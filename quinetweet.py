@@ -3,9 +3,9 @@ import subprocess
 import json
 
 OFFSET = 1288834974657
-TIME_DIFF = 356
-MACHINE_ID = 335
-N = 20
+TIME_DIFF = 375
+MACHINE_ID = 337
+N = 100
 
 def tweet_id_from_timestamp(utcdttime):
     tstamp = utcdttime.timestamp()
@@ -35,7 +35,7 @@ def guess_tweet_id(time_diff=0, machine_id=0):
 def guess():
     for _ in range(N):
         guessed_id = guess_tweet_id(TIME_DIFF, MACHINE_ID)
-        command = f"twurl -d 'status=This refers to this: https://twitter.com/brianfakhoury/status/{guessed_id}' /1.1/statuses/update.json"
+        command = f"twurl -d 'status=This refers to this: https://twitter.com/BrianFakhoury/status/{guessed_id}' /1.1/statuses/update.json"
         op = subprocess.check_output(command, shell=True)
         actual_id = json.loads(op.decode())["id"]
         print(actual_id)
