@@ -3,8 +3,8 @@ import subprocess
 import json
 
 OFFSET = 1288834974657
-TIME_DIFF = 375
-MACHINE_ID = 337
+TIME_DIFF = 345
+MACHINE_ID = 332
 N = 100
 
 def tweet_id_from_timestamp(utcdttime):
